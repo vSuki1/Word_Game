@@ -24,3 +24,16 @@ words = [
 ]
 
 answer = random.choice(words)
+
+result_types = ("x", "y", "g")
+
+game_stats = {
+    "attempts": 0,
+    "won": False
+}
+
+
+
+while game_stats["won"] == False and game_stats["attempts"] < 6:
+
+    guess = input("enter a guess")
