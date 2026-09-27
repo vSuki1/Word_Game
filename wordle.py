@@ -25,7 +25,6 @@ words = [
 
 answer = random.choice(words)
 
-result_types = ("x", "y", "g")
 
 game_stats = {
     "attempts": 0,
