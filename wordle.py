@@ -37,3 +37,8 @@ game_stats = {
 while game_stats["won"] == False and game_stats["attempts"] < 6:
 
     guess = input("enter a guess")
+
+    if len(guess) != 5:
+        print(guess, "is not 5 letters long")
+        continue
+    
