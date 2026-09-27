@@ -4,7 +4,7 @@ Word Game
 Author: Disukhi Ahmed
 
 Recreating Wordle in vs code
-used w3 schools tutorials for learning Python range
+Used w3schools tutorials for learning Python range in while loops.
 
 
 """
@@ -12,7 +12,7 @@ used w3 schools tutorials for learning Python range
 
 import random
 
-# dictionary with lists of word organized by length
+# Dictionary with lists of word organized by length
 words = {
     4: [
         "book",
@@ -44,9 +44,11 @@ words = {
     ]
 }
 
+print("This is the word game, try to guess the word, you have 6 attempts. g means correct letter correct position, y means correct letter wrong position, x means letter not in the word")
+
 """Ask the player to choose a word length between 4 5 6 and returns the chosen length."""
 def choose_word():
-     choice = int(input("Choose a word length, 4, 5 or 6: "))
+     choice = int(input("How many letters should the word have? Choose a word length , 4, 5 or 6: "))
 
      if choice == 4:
          return 4
@@ -68,12 +70,12 @@ game_stats = {
     "won": False
 
 }
-print("This is the word game, try to guess the word, you have 6 attempts. g means correct letter correct position, y means correct letter wrong position, x means letter not in the word")
+
 
 
 while game_stats["won"] == False and game_stats["attempts"] < 6:
     """ The game continues until the player wins or uses all six attempts """
-    guess = input("enter a guess: ").lower()
+    guess = input("Guess the word: ").lower()
 
     if len(guess) != word_length:
         print(guess, "is not", word_length, "letters long")
