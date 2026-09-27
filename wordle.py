@@ -33,7 +33,7 @@ game_stats = {
 
 }
 print("This is the word game, try to guess the 5 letter word, you have 6 attempts. g means wrong letter wrong position, y means correct letter wrong position, x means letter not in the word")
-print(answer)
+
 
 while game_stats["won"] == False and game_stats["attempts"] < 6:
     result = ["x", "x", "x", "x", "x"]
