@@ -4,6 +4,9 @@ Word Game
 Author: Disukhi Ahmed
 
 Recreating Wordle in vs code
+used w3 schools tutorials for learning Python range
+
+
 """
 
 
@@ -43,7 +46,7 @@ words = {
 
 """Ask the player to choose a word length between 4 5 6 and returns the chosen length."""
 def choose_word():
-     choice = int(input("Choose a word length, 4, 5 or 6:"))
+     choice = int(input("Choose a word length, 4, 5 or 6: "))
 
      if choice == 4:
          return 4
@@ -65,11 +68,11 @@ game_stats = {
     "won": False
 
 }
-print("This is the word game, try to guess the word, you have 6 attempts. g means wrong letter wrong position, y means correct letter wrong position, x means letter not in the word")
+print("This is the word game, try to guess the word, you have 6 attempts. g means correct letter correct position, y means correct letter wrong position, x means letter not in the word")
 
-# The game continues until the player wins or uses all six attempts
+
 while game_stats["won"] == False and game_stats["attempts"] < 6:
-    
+    """ The game continues until the player wins or uses all six attempts """
     guess = input("enter a guess: ").lower()
 
     if len(guess) != word_length:
