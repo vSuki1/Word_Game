@@ -12,46 +12,30 @@ Used w3schools tutorials for learning Python range in while loops.
 
 import random
 from wordle_game import WordleGame
+from pathlib import Path
 
-# Dictionary with lists of word organized by length
-words = {
-    4: [
-        "book",
-        "tree",
-        "fish",
-        "blue",
-        "game"
-    ],
+def load_words(word_length):
 
-    5: [
-        "apple",
-        "house",
-        "plant",
-        "chair",
-        "water",
-        "green",
-        "bread",
-        "mouse",
-        "table",
-        "light"
-    ],
 
-    6: [
-        "school",
-        "planet",
-        "friend",
-        "animal",
-        "yellow"
-    ]
-}
+    files = {
+        4: Path("four_letter_words.txt"),
+        5: Path("five_letter_words.txt"),
+        6: Path("six_letter_words.txt")
+    }
 
+    try:
+        file = files[word_length].open("r", encoding="utf-8")
+        words = [word.lower() for word in file.read().splitlines()]
+        file.close()
+        return words
+    except FileNotFoundError:
+        print("Word file not found.")
+        return []
 
 
 def main():
     print("This is the word game, try to guess the word, you have 6 attempts. g means correct letter correct position, y means correct letter wrong position, x means letter not in the word")
-
     """Ask the player to choose a word length between 4 5 6 and returns the chosen length."""
-
 
     def choose_word():
         choice = int(input("How many letters should the word have? Choose a word length , 4, 5 or 6: "))
@@ -67,9 +51,14 @@ def main():
             return choose_word()
         
     word_length = choose_word()
-    answer = random.choice(words[word_length])
-    game = WordleGame(answer)
+    words = load_words(word_length)
 
+    if not words:
+        print("No words available.")
+        return
+
+    answer = random.choice(words)
+    game = WordleGame(answer)
 
  
 
